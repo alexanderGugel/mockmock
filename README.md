@@ -6,6 +6,8 @@
 
 Mocking library for minimalists and people that don't want to remember 500 different methods.
 
+![Curiout Chicken](https://farm8.staticflickr.com/7201/6825992286_1762072c7b_b.jpg)
+
 ## Why?
 
 I like [sinon](http://sinonjs.org/docs/), but I am not a big fan of forcing users to remember the difference between stubs, spies and mocks. There is no need for a ton of different methods. `mockmock` is a much simpler approach that offers a sufficient solution for the majority of use-cases.
@@ -199,6 +201,10 @@ console.log(mocked.called) // #=> false
 ```
 
 *For more usage examples, have a look at the test suite.*
+
+## Credits
+
+* "Curious Chicken" image by [Ian Southwell](https://flic.kr/p/bpbZGb), licensed under [CC BY-NC-ND 2.0](https://creativecommons.org/licenses/by-nc-nd/2.0/)
 
 ## License
 
