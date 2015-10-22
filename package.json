@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha",
-    "dev": "mocha -w --reporter dot"
+    "dev": "mocha -w --reporter dot",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "author": "Alexander Gugel <alexander.gugel@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "istanbul": "^0.4.0",
     "mocha": "^2.3.3",
     "standard": "^5.3.1"
   },

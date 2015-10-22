@@ -77,7 +77,7 @@ describe('mockmock', function () {
     it('should be an array of thisArgs the mock function has been executed with', function () {
       var this0 = {}
       var this1 = {}
-      var mocked = mock(function () { })
+      var mocked = mock()
       mocked.call(this0)
       mocked.call(this1)
       assert.deepEqual(mocked.thisValues, [this0, this1])
@@ -178,14 +178,14 @@ describe('mockmock', function () {
 
   describe('#flush()', function () {
     it('should be an alias for #clear()', function () {
-      var mocked = mock(function () {})
+      var mocked = mock()
       assert.equal(mocked.flush, mocked.clear)
     })
   })
 
   describe('#reset()', function () {
     it('should be an alias for #clear()', function () {
-      var mocked = mock(function () {})
+      var mocked = mock()
       assert.equal(mocked.flush, mocked.clear)
     })
   })
