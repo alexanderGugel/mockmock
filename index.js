@@ -127,7 +127,7 @@ function mock (mockFn) {
     },
     lastCall: {
       get: function () {
-        return nthCall(calls.length)
+        return nthCall(calls.length - 1)
       }
     }
   })
