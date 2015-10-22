@@ -76,6 +76,19 @@ If you are familiar with [sinon](http://sinonjs.org/docs/), a lot of the methods
 
 Either accepts a constant value to be returned using an identity function or a function to be mocked. If no argument is provided, a noop function will be used.
 
+```js
+var mockedIdentityFn = mock('123')
+console.log(mockedIdentityFn()) // #=> '123'
+
+var mockedFn = mock(function () {
+  return 'hello'
+})
+console.log(mockedFn()) // #=> 'hello'
+
+var mockedNoop = mocke()
+console.log(mockedNoop()) // #=> undefined
+```
+
 ### `args`
 
 An array of recorded `arguments`. `arguments` will be converted to an actual array to allow easy usage of `deepEqual` methods.
