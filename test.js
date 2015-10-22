@@ -4,14 +4,30 @@ var assert = require('assert')
 var mock = require('./')
 
 describe('mockmock', function () {
-  it('should proxy mocked function', function () {
-    var i = 0
-    var mocked = mock(function () {
-      return i++
+  describe('should proxy', function () {
+    it('function', function () {
+      var i = 0
+      var mocked = mock(function () {
+        return i++
+      })
+      assert.equal(mocked(), 0)
+      assert.equal(mocked(), 1)
+      assert.equal(mocked(), 2)
     })
-    assert.equal(mocked(), 0)
-    assert.equal(mocked(), 1)
-    assert.equal(mocked(), 2)
+
+    describe('passed in value', function () {
+      [null, undefined, 'hello', 123, {}].forEach(function (scenario) {
+        it(scenario, function () {
+          var mocked = mock(scenario)
+          assert.equal(mocked(), scenario)
+        })
+      })
+    })
+
+    it('noop if no arguments have been supplied', function () {
+      var mocked = mock()
+      assert.equal(mocked(), undefined)
+    })
   })
 
   it('should forward passed in args to mocked function', function () {
@@ -215,7 +231,8 @@ describe('mockmock', function () {
   ; [
     { method: 'firstCall', n: 1 },
     { method: 'secondCall', n: 2 },
-    { method: 'thirdCall', n: 3 }
+    { method: 'thirdCall', n: 3 },
+    { method: 'lastCall', n: 9 }
   ].forEach(function (scenario) {
     describe('#' + scenario.method, function () {
       it('should describe the ' + scenario.n + '. call', function () {

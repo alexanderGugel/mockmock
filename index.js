@@ -1,7 +1,7 @@
 'use strict'
 
 function mock (mockFn) {
-  if (mockFn !== undefined && typeof mockFn !== 'function') {
+  if (arguments.length && typeof mockFn !== 'function') {
     var mockValue = mockFn
     mockFn = function () {
       return mockValue
