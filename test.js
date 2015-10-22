@@ -211,4 +211,28 @@ describe('mockmock', function () {
       })
     })
   })
+
+  ; [
+    { method: 'firstCall', n: 1 },
+    { method: 'secondCall', n: 2 },
+    { method: 'thirdCall', n: 3 }
+  ].forEach(function (scenario) {
+    describe('#' + scenario.method, function () {
+      it('should describe the ' + scenario.n + '. call', function () {
+        var _this = {}
+
+        var mocked = mock(scenario.n)
+        for (var i = 0; i < 10; i++) {
+          mocked.call(_this, i, i + 1)
+        }
+
+        assert.deepEqual(mocked[scenario.method], {
+          returnValue: scenario.n,
+          args: [scenario.n, scenario.n + 1],
+          error: undefined,
+          thisValue: _this
+        })
+      })
+    })
+  })
 })
