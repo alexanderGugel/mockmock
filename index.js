@@ -58,17 +58,16 @@ function mock (mockFn) {
   mockedFn.flush = mockedFn.clear
   mockedFn.reset = mockedFn.clear
 
-  function calledNtimes (N) {
-    return calls.length === N
+  function calledNtimes (n) {
+    return calls.length === n
   }
 
-  function nthCall (N) {
-    var index = calls.length - N
+  function nthCall (n) {
     return {
-      thisValue: thisValues[index],
-      args: args[index],
-      returnValue: returnValues[index],
-      error: errors[index]
+      thisValue: thisValues[n],
+      args: args[n],
+      returnValue: returnValues[n],
+      error: errors[n]
     }
   }
 
