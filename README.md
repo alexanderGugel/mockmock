@@ -213,6 +213,26 @@ mocked.clear()
 console.log(mocked.called) // #=> false
 ```
 
+### `mockFn`
+
+The function that is being mocked. Identity function of the passed in value when a constant value has been supplied.
+
+```js
+var fn = function () {}
+var mocked = mock(fn)
+console.log(mocked.mockFn, fn) // #=> true
+```
+
+### `mockValue`
+
+Equivalent of `mockFn` for mocked identities. References the supplied constant value (if any).
+
+```js
+var c = 123
+var mocked = mock(c)
+console.log(mocked.mockValue, c) // #=> true
+```
+
 *For more usage examples, have a look at the test suite.*
 
 ## Credits
@@ -221,4 +241,4 @@ console.log(mocked.called) // #=> false
 
 ## License
 
-A copy of the ISC license is included in this repository.
+ISC

@@ -62,7 +62,7 @@ describe('mockmock', function () {
   })
 
   describe('#mockFn', function () {
-    it('should reference itself for chaining API', function () {
+    it('should reference mocked function', function () {
       var mocked = mock()
       assert.equal(mocked.mockFn, mocked)
     })
