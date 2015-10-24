@@ -1,6 +1,6 @@
 {
   "name": "mockmock",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Mocking library for minimalists and people that don't want to remember 500 different methods.",
   "main": "index.js",
   "scripts": {
