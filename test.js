@@ -61,6 +61,25 @@ describe('mockmock', function () {
     assert.throws(mocked)
   })
 
+  describe('#mockFn', function () {
+    it('should reference itself for chaining API', function () {
+      var mocked = mock()
+      assert.equal(mocked.mockFn, mocked)
+    })
+  })
+
+  describe('#mockValue', function () {
+    /* istanbul ignore next */
+    var noop = function () {}
+
+    ; [ noop, 'hello world', undefined, null, 123 ].forEach(function (scenario) {
+      it('should work with ' + typeof scenario, function () {
+        var mocked = mock(scenario)
+        assert.equal(mocked.mockValue, scenario)
+      })
+    })
+  })
+
   describe('#args', function () {
     it('should be an array of previously passed in args', function () {
       var mocked = mock(function () { })

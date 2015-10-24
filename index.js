@@ -1,16 +1,15 @@
 'use strict'
 
 function mock (mockFn) {
+  var mockValue = mockFn
+
   if (arguments.length && typeof mockFn !== 'function') {
-    var mockValue = mockFn
     mockFn = function () {
       return mockValue
     }
-    mockFn.mockValue = mockValue
   }
 
   mockFn = mockFn || function () {}
-  mockFn.mockFn = mockFn
 
   var args = []
   var thisValues = []
@@ -72,6 +71,16 @@ function mock (mockFn) {
   }
 
   Object.defineProperties(mockedFn, {
+    mockFn: {
+      get: function () {
+        return mockedFn
+      }
+    },
+    mockValue: {
+      get: function () {
+        return mockValue
+      }
+    },
     args: {
       get: function () {
         return args
